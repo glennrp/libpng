@@ -75,7 +75,7 @@ write_unknown_chunks(png_structrp png_ptr, png_const_inforp info_ptr,
  * library.  If you have a new chunk to add, make a function to write it,
  * and put it in the correct location here.  If you want the chunk written
  * after the image data, put it in png_write_end().  I strongly encourage
- * you to supply a PNG_INFO_ flag, and check info_ptr->valid before writing
+ * you to supply a PNG_INFO_<chunk> flag, and check info_ptr->valid before writing
  * the chunk, as that will keep the code from breaking if you want to just
  * write a plain PNG file.  If you have long comments, I suggest writing
  * them in png_write_end(), and compressing them.
@@ -1195,7 +1195,7 @@ png_set_compression_window_bits(png_structrp png_ptr, int window_bits)
       return;
 
    /* Prior to 1.6.0 this would warn but then set the window_bits value. This
-    * meant that negative window bits values could be selected that would cause
+    * meant that negative window_bits values could be selected that would cause
     * libpng to write a non-standard PNG file with raw deflate or gzip
     * compressed IDAT or ancillary chunks.  Such files can be read and there is
     * no warning on read, so this seems like a very bad idea.
