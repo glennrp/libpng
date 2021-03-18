@@ -185,6 +185,8 @@
       /* Use the intrinsics code by default. */
 #     define PNG_ARM_NEON_IMPLEMENTATION 1
 #  endif
+#else /* PNG_ARM_NEON_OPT == 0 */
+#     define PNG_ARM_NEON_IMPLEMENTATION 0
 #endif /* PNG_ARM_NEON_OPT > 0 */
 
 #ifndef PNG_MIPS_MSA_OPT
@@ -263,11 +265,15 @@
 #  ifndef PNG_MIPS_MSA_IMPLEMENTATION
 #     define PNG_MIPS_MSA_IMPLEMENTATION 1
 #  endif
+#else
+#  define PNG_MIPS_MSA_IMPLEMENTATION 0
 #endif /* PNG_MIPS_MSA_OPT > 0 */
 
 #if PNG_POWERPC_VSX_OPT > 0
 #  define PNG_FILTER_OPTIMIZATIONS png_init_filter_functions_vsx
 #  define PNG_POWERPC_VSX_IMPLEMENTATION 1
+#else
+#  define PNG_POWERPC_VSX_IMPLEMENTATION 0
 #endif
 
 
