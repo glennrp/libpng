@@ -973,6 +973,7 @@ endif()
 # Create an export file that CMake users can include() to import our targets.
 if(NOT SKIP_INSTALL_EXPORT AND NOT SKIP_INSTALL_ALL)
   install(EXPORT libpng
+          NAMESPACE "libpng::"
           DESTINATION lib/libpng
           FILE lib${PNG_LIB_NAME}.cmake)
 endif()
