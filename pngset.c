@@ -1641,13 +1641,13 @@ png_set_unknown_chunks(const png_struct *png_ptr,
 
       else
       {
-         if(unknowns->data == NULL && unknowns->size != 0)
-         {
-            png_chunk_report(png_ptr,
-            "unknown chunk: NULL data with nonzero size",
-            PNG_CHUNK_WRITE_ERROR);
-            continue;
-         }
+        if (unknowns->data == NULL && unknowns->size != 0)
+        {
+          png_chunk_report(png_ptr,
+                           "unknown chunk: NULL data with nonzero size",
+                           PNG_CHUNK_WRITE_ERROR);
+          continue;
+        }
          np->data = png_voidcast(png_byte *,
              png_malloc_base(png_ptr, unknowns->size));
 
